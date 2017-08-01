@@ -1,0 +1,912 @@
+2017/07/26 16:50:17 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_id =  AND disabled='false'' at line 1. The SQL statement executed was: SELECT * FROM meet_order WHERE purchase_id =  AND customer_id =  AND disabled='false'.
+in D:\ding\wamp64\www\company\protected\components\B2cModel.php (51)
+in D:\ding\wamp64\www\company\protected\models\Order.php (201)
+in D:\ding\wamp64\www\company\protected\models\Order.php (291)
+2017/07/26 16:50:17 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_id =  AND disabled='false'' at line 1. The SQL statement executed was: SELECT * FROM meet_order WHERE purchase_id =  AND customer_id =  AND disabled='false'' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\B2cModel.php(51): CDbCommand->queryRow()
+#2 D:\ding\wamp64\www\company\protected\models\Order.php(201): B2cModel->ModelQueryRow('SELECT * FROM m...')
+#3 D:\ding\wamp64\www\company\protected\models\Order.php(291): Order->orderCache('', '')
+#4 D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php(293): Order->orderItems('', '')
+#5 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionOrderListSheet()
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('OrderListSheet')
+#10 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('api/default/Ord...')
+#11 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 D:\ding\wamp64\www\company\api.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+---
+2017/07/26 17:00:26 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_id =  AND disabled='false'' at line 1. The SQL statement executed was: SELECT * FROM meet_order WHERE purchase_id =  AND customer_id =  AND disabled='false'.
+in D:\ding\wamp64\www\company\protected\components\B2cModel.php (51)
+in D:\ding\wamp64\www\company\protected\models\Order.php (201)
+in D:\ding\wamp64\www\company\protected\models\Order.php (291)
+2017/07/26 17:00:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1064 You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND customer_id =  AND disabled='false'' at line 1. The SQL statement executed was: SELECT * FROM meet_order WHERE purchase_id =  AND customer_id =  AND disabled='false'' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(415): CDbCommand->queryInternal('fetch', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\B2cModel.php(51): CDbCommand->queryRow()
+#2 D:\ding\wamp64\www\company\protected\models\Order.php(201): B2cModel->ModelQueryRow('SELECT * FROM m...')
+#3 D:\ding\wamp64\www\company\protected\models\Order.php(291): Order->orderCache('', '')
+#4 D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php(293): Order->orderItems('', '')
+#5 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionOrderListSheet()
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('OrderListSheet')
+#10 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('api/default/Ord...')
+#11 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 D:\ding\wamp64\www\company\api.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+---
+2017/07/26 17:08:19 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:08:42 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:08:43 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:08:44 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:08:49 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:08:54 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/26 17:09:04 [error] [php] Undefined index: customer_id (D:\ding\wamp64\www\company\protected\components\ApiController.php:88)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\api.php(13): CWebApplication->run()
+REQUEST_URI=/api.php?r=api/default/OrderListSheet&customer_id=10000001&purchase_id=1&type=season
+in D:\ding\wamp64\www\company\protected\components\ApiController.php (88)
+in D:\ding\wamp64\www\company\protected\modules\api\controllers\DefaultController.php (287)
+in D:\ding\wamp64\www\company\api.php (13)
+2017/07/27 06:09:37 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+' in D:\ding\wamp64\www\company\framework\db\CDbConnection.php:399
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 D:\ding\wamp64\www\company\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 D:\ding\wamp64\www\company\framework\base\CModule.php(394): CDbConnection->init()
+#3 D:\ding\wamp64\www\company\framework\base\CApplication.php(458): CModule->getComponent('db')
+#4 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(2384): CActiveRecord->getDbConnection()
+#6 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(AdminUsers))
+#7 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#8 D:\ding\wamp64\www\company\protected\components\BaseModel.php(14): CActiveRecord->__construct()
+#9 D:\ding\wamp64\www\company\protected\controllers\AdminController.php(33): BaseModel->__construct()
+#10 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): AdminController->actionLogin()
+#11 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('login')
+#15 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/login')
+#16 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/admin/login?r=admin/login
+HTTP_REFERER=http://www.company.com/admin/login?r=admin/login
+---
+2017/07/27 06:12:10 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [2002] 由于连接方在一段时间后没有正确答复或连接的主机没有反应，连接尝试失败。
+' in D:\ding\wamp64\www\company\framework\db\CDbConnection.php:399
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 D:\ding\wamp64\www\company\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 D:\ding\wamp64\www\company\framework\base\CModule.php(394): CDbConnection->init()
+#3 D:\ding\wamp64\www\company\framework\base\CApplication.php(458): CModule->getComponent('db')
+#4 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(2384): CActiveRecord->getDbConnection()
+#6 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(411): CActiveRecordMetaData->__construct(Object(AdminUsers))
+#7 D:\ding\wamp64\www\company\framework\db\ar\CActiveRecord.php(79): CActiveRecord->getMetaData()
+#8 D:\ding\wamp64\www\company\protected\components\BaseModel.php(14): CActiveRecord->__construct()
+#9 D:\ding\wamp64\www\company\protected\controllers\AdminController.php(33): BaseModel->__construct()
+#10 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): AdminController->actionLogin()
+#11 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('login')
+#15 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('admin/login')
+#16 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#17 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/admin/login?r=admin/login
+HTTP_REFERER=http://www.company.com/admin/login?r=admin/login
+---
+2017/07/27 08:06:37 [error] [php] Use of undefined constant admini - assumed 'admini' (D:\ding\wamp64\www\company\protected\components\BaseController.php:28)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#1 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#2 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#3 D:\ding\wamp64\www\company\admin.php(13): CWebApplication->run()
+REQUEST_URI=/admin/admin.php?r=desktop/default/index
+in D:\ding\wamp64\www\company\protected\components\BaseController.php (28)
+in D:\ding\wamp64\www\company\admin.php (13)
+2017/07/27 08:06:47 [error] [php] Use of undefined constant admini - assumed 'admini' (D:\ding\wamp64\www\company\protected\components\BaseController.php:28)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(276): CWebApplication->createController()
+#1 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#2 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#3 D:\ding\wamp64\www\company\admin.php(13): CWebApplication->run()
+REQUEST_URI=/admin/admin.php?r=desktop/default/index
+in D:\ding\wamp64\www\company\protected\components\BaseController.php (28)
+in D:\ding\wamp64\www\company\admin.php (13)
+2017/07/27 10:44:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/27 10:44:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 01:53:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 01:53:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 01:54:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.meet_customer.area' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was:  select province,area from meet_customer where  1=1   group by  province.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Customer.php (44)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php (171)
+2017/07/28 01:54:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.meet_customer.area' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was:  select province,area from meet_customer where  1=1   group by  province' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Customer.php(44): BaseModel->QueryAll(' select provinc...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php(171): Customer->getList('province,area', '', 'province')
+#4 D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php(43): OrderController->filter()
+#5 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): OrderController->actionIndex()
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#10 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/order/ind...')
+#11 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/admin.php?r=order/order/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 01:55:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 01:55:07 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 01:58:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 01:58:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:00:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:00:26 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:46:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (170)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:46:55 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(170): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:50:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:50:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:51:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:51:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:51:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:51:54 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 02:52:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 02:52:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 03:03:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 03:03:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 03:05:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc .
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (171)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+2017/07/28 03:05:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #3 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.name' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: select sum(oi.nums)as nums, sum(oi.amount) as amount ,
+p.name,p.cost_price,p.style_sn,p.product_id,p.img_url,p.serial_num,
+p.cat_b,p.cat_m,p.cat_s,s.size_name,tp.type_name  
+from meet_order_items  as oi
+left join meet_product as p on p.product_id = oi.product_id
+left join meet_size as s on s.size_id = p.size_id
+left join meet_type as tp on p.type_id = tp.type_id
+
+where oi.disabled ='false' 
+GROUP BY oi.style_sn ORDER BY  p.serial_num asc ' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php(171): BaseModel->QueryAll('select sum(oi.n...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php(59): Orders->orderList(1, 15, Array)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): DefaultController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/default/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/default/index
+HTTP_REFERER=http://www.company.com/admin.php?r=desktop/default/index
+---
+2017/07/28 03:31:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Product.php (372)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php (68)
+2017/07/28 03:31:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Product.php(372): BaseModel->QueryAll('SELECT p.serial...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php(68): Product->manageSelectLikeSearch('', 1)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): ProductController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/product/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/product/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/product/check
+---
+2017/07/28 03:31:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Product.php (372)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php (68)
+2017/07/28 03:31:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Product.php(372): BaseModel->QueryAll('SELECT p.serial...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php(68): Product->manageSelectLikeSearch('', 1)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): ProductController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/product/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/product/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/manage/index
+---
+2017/07/28 03:31:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Product.php (372)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php (68)
+2017/07/28 03:31:09 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Product.php(372): BaseModel->QueryAll('SELECT p.serial...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php(68): Product->manageSelectLikeSearch('', 1)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): ProductController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/product/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/product/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/manage/index
+---
+2017/07/28 03:31:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Product.php (372)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php (68)
+2017/07/28 03:31:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Product.php(372): BaseModel->QueryAll('SELECT p.serial...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php(68): Product->manageSelectLikeSearch('', 1)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): ProductController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/product/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/product/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/manage/index
+---
+2017/07/28 03:31:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.meet_customer.area' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was:  select province,area from meet_customer where  1=1   group by  province.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Customer.php (44)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php (171)
+2017/07/28 03:31:16 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.meet_customer.area' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was:  select province,area from meet_customer where  1=1   group by  province' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Customer.php(44): BaseModel->QueryAll(' select provinc...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php(171): Customer->getList('province,area', '', 'province')
+#4 D:\ding\wamp64\www\company\protected\modules\order\controllers\OrderController.php(43): OrderController->filter()
+#5 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): OrderController->actionIndex()
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#8 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#10 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/order/ind...')
+#11 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#12 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#13 {main}
+REQUEST_URI=/admin.php?r=order/order/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/manage/index
+---
+2017/07/28 08:15:55 [error] [php] Undefined index: purchase (D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php:64)
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 D:\ding\wamp64\www\company\framework\web\CController.php(286): DefaultController->runAction()
+#2 D:\ding\wamp64\www\company\framework\web\CController.php(265): DefaultController->runActionWithFilters()
+#3 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): DefaultController->run()
+#4 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#6 D:\ding\wamp64\www\company\admin.php(13): CWebApplication->run()
+REQUEST_URI=/admin.php?r=order/default/index
+in D:\ding\wamp64\www\company\protected\modules\order\models\Orders.php (64)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\DefaultController.php (59)
+in D:\ding\wamp64\www\company\admin.php (13)
+2017/07/31 07:16:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15.
+in D:\ding\wamp64\www\company\protected\components\BaseModel.php (50)
+in D:\ding\wamp64\www\company\protected\modules\order\models\Product.php (372)
+in D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php (68)
+2017/07/31 07:16:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand 鏃犳硶鎵ц SQL 璇彞: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #2 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'purchase.p.model_sn' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by. The SQL statement executed was: SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+              FROM  meet_product AS p
+              LEFT JOIN meet_color AS c ON p.color_id = c.color_id
+              LEFT JOIN meet_cat_big AS b ON p.cat_b = b.big_id
+              LEFT JOIN meet_cat_middle AS m ON m.middle_id= p.cat_m
+              LEFT JOIN meet_cat_big_small AS s ON p.cat_s=s.small_id
+              WHERE disabled='false'   GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT 0, 15' in D:\ding\wamp64\www\company\framework\db\CDbCommand.php:543
+Stack trace:
+#0 D:\ding\wamp64\www\company\framework\db\CDbCommand.php(396): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 D:\ding\wamp64\www\company\protected\components\BaseModel.php(50): CDbCommand->queryAll()
+#2 D:\ding\wamp64\www\company\protected\modules\order\models\Product.php(372): BaseModel->QueryAll('SELECT p.serial...')
+#3 D:\ding\wamp64\www\company\protected\modules\order\controllers\ProductController.php(68): Product->manageSelectLikeSearch('', 1)
+#4 D:\ding\wamp64\www\company\framework\web\actions\CInlineAction.php(49): ProductController->actionIndex()
+#5 D:\ding\wamp64\www\company\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#6 D:\ding\wamp64\www\company\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#7 D:\ding\wamp64\www\company\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(282): CController->run('index')
+#9 D:\ding\wamp64\www\company\framework\web\CWebApplication.php(141): CWebApplication->runController('order/product/i...')
+#10 D:\ding\wamp64\www\company\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#11 D:\ding\wamp64\www\company\admin.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/admin.php?r=order/product/index
+HTTP_REFERER=http://www.company.com/admin.php?r=order/manage/index
+---
