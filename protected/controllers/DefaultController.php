@@ -127,9 +127,8 @@ class DefaultController extends B2cController
             'customer_id' => $this->customer_id,
             'hits' => $hits,
         );
-        //一个品牌商下的所有产品
+        //一个用户的订单状态
         $res=$this->productModel->checkStatus($params['customer_id']);
-
         //获取搜索的商品
         $model['list'] = $this->productModel->newitems($conArr, $serial_num, $params, $price, $page);
         $model['c_id'] = $c_id;

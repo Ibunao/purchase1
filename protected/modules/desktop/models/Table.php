@@ -171,6 +171,7 @@ class Table extends B2cModel
             }
             Yii::app()->cache->set('small-cat-list',$items,3600*24);
         }
+        // var_dump($items);exit;
         return $items;
     }
 

@@ -77,5 +77,6 @@ class UserController extends Controller
     public function actionCache()
     {
         Yii::app()->cache->flush();
+        echo "清除缓存";
     }
 }

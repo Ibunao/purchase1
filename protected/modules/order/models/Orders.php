@@ -62,10 +62,10 @@ class Orders extends BaseModel
         $left = '';
         $select = '';
         if (!isset($params['purchase'])) {
-            echo "ding";
+            // echo "ding";
         }
-        echo isset($params['purchase']);
-        var_dump($params);exit;
+        // echo isset($params['purchase']);
+        // var_dump($params);exit;
         if (!empty($params['purchase']) && !empty($params['type'])) {
             $where .= " and c.type= '" . $params['type'] . "' and c.purchase_id= '" . $params['purchase'] . "' ";
             $select .= ", o.purchase_id,o.customer_id, c.`type`";
@@ -182,7 +182,7 @@ GROUP BY oi.product_id ORDER BY $order_by ";
 
             $sql .= " limit $offset,$limit ";
         }
-        var_dump($sql);exit;
+        // var_dump($sql);exit;
         $list = $this->QueryAll($sql);
 
         return array('item' => $list, 'count' => $count);

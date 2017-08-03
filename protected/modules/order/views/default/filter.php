@@ -232,7 +232,7 @@
             <button   class="btn btn-sm <?php if(isset($params['order'])){ echo  ($params['order']=='cost_price desc')?'btn-info':'btn-primary';}else{ echo 'btn-primary'; } ?>  order" data-val="cost_price desc">
                 价格
             </button>
-            <button class="print btn btn-sm">打印</button>
+            <button id="print" class="print btn btn-sm">打印</button>
         </lable>
 
         <lable class="col-sm-3">展示：
@@ -280,6 +280,14 @@
             $("input[name='param[download]']").val(val);
             $("form").eq(0).submit();
             $("input[name='param[download]']").val(0);
+        });
+
+        $(function($){
+            $(".print").click(function(){
+                $("#print_area").printArea( {
+                    mode:'popup'
+                });
+            });
         });
     });
 

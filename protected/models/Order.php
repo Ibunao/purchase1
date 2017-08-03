@@ -67,6 +67,7 @@ class Order extends B2cModel
         //订单order_id获取
         if (isset($order_list['order_row']) && $order_list['order_row']) $order_id = $order_list['order_row']['order_id'];
         else $order_id = $this->build_order_no();
+
         //订单商品列表
         $item_list = $this->itemListAjax($product, $order_id, $order_list['item_list']);
 
@@ -164,6 +165,7 @@ class Order extends B2cModel
                     $delete_data_arr[] = "UPDATE  meet_order_items SET disabled='true' WHERE order_id = {$order_id} AND product_id = '" . $v[0] . "' AND disabled='false';";
                 continue;
             }
+var_dump($product_list);exit;
             $product_sn = $product_list[$v[0]]['product_sn'];
             $style_sn = $product_list[$v[0]]['style_sn'];
             $model_sn = $product_list[$v[0]]['model_sn'];
@@ -205,6 +207,7 @@ class Order extends B2cModel
         $model['item_list'] = array();
         $total_num = 0;
         $cost_item = 0.00;
+        //这里没必要加更新
         if (!$item_list) {
             $this->ModelExecute("UPDATE meet_order SET cost_item = 0.00 WHERE purchase_id = {$purchase_id} AND customer_id = {$customer_id}");
             $model['order_row']['cost_item'] = $cost_item;

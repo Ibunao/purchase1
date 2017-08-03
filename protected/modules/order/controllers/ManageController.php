@@ -294,7 +294,7 @@ class ManageController extends BaseController
                 }
 
                 if (!isset($agent_code[$result[$i][10] . '_' . $result[$i][9]])) {
-                    $warning .= "<span><b>代理名称与代理代码不匹配</b></span>";
+                    $warning .= "<span><b>代理名称  {$result[$i][9]}  与代理代码  {$result[$i][10]}  不匹配</b></span>";
                 }
 
                 //判断指标
@@ -402,9 +402,15 @@ class ManageController extends BaseController
                 }
             }
             if (count($code) != count(array_unique($code))) {
-                $res_str .= "<p><span><b>客户代码有重复，请检查</b></span></p>";
+                // 获取去掉重复数据的数组 
+                $unique_arr = array_unique( $code ); 
+                // 获取重复数据的数组 
+                $repeat_arr = array_diff_assoc( $code, $unique_arr); 
+                $codes = implode(',', $repeat_arr);
+                $res_str .= "<p><span><b>客户代码有重复，重复代码 {$codes}</b></span></p>";
             }
             if (empty($res_str)) {
+                // var_dump($res_str);exit;
                 $res = $this->uploadCsv($newFile, $offPrize, $percentTarget);
                 if ($res) {
                     $customer->breakAction('上传成功', '/admin.php?r=order/manage/index');
@@ -525,6 +531,7 @@ class ManageController extends BaseController
             $data_values[] = "('{$purchase_id}','{$code}','{$name}','{$password}','{$mobile}','{$type}','{$province}','{$area}','{$target}','{$leader}','{$leader_name}','{$agent}','{$department}','{$parent_id}','{$relation_code}','{$target_cat1}','{$target_cat2}','{$target_cat3}','{$target_cat4}','{$target_cat6}','{$discount_cat1}','{$discount_cat2}','{$discount_cat3}','{$discount_cat4}','{$discount_cat6}')";
         }
         $data = implode(',', $data_values);
+        // var_dump($data);exit;
         $connection = Yii::app()->db;
         $transaction = $connection->beginTransaction();
         try {

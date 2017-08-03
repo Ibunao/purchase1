@@ -303,10 +303,10 @@ left join meet_wave as w on w.wave_id = p.wave_id
         );
 
         $result['serialNum'] = $this->selectQueryRows("serial_num", "{{product}}", "disabled='false'", "serial_num");
-
         $result['modelSn'] = $this->selectQueryRows("model_sn", "{{product}}", "disabled='false'", "model_sn");
 
         $result['name'] = $this->selectQueryRows("name", "{{product}}", "disabled='false'", "name");
+// var_dump($result);exit;
 
         $color = new Color();
         $result['color'] = $color->getColor();

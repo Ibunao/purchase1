@@ -64,7 +64,6 @@ class ProductController extends BaseController
 
         $productModel = new Product();
         $selectFilter = $productModel->getIndexFilter($param);   //获取筛选下拉框中的数据
-
         $resultData = $productModel->manageSelectLikeSearch($param, $pageIndex); //查询
 
         $countAll = $productModel->countAllData($param);      //统计结果总数
@@ -292,7 +291,7 @@ class ProductController extends BaseController
         $postFile = isset($_FILES["file"]) ? $_FILES['file'] : exit("请上传文件");
 
         $postFileType = pathinfo($postFile['name'], PATHINFO_EXTENSION);
-        $allowExt = array('xls');
+        $allowExt = array('xls', 'xlsx');
         if (empty($postFile)) {
             exit("请上传文件");
         }
@@ -336,6 +335,11 @@ class ProductController extends BaseController
             );
             $res_str = "";
             $export = new Export();
+            $schemeIdToName = [];
+            //色系id对应色系记录
+            foreach ($export->scheme as $key => $arr) {
+                $schemeIdToName[$arr['scheme_id']] = $arr;
+            }
             for ($i = 1; $i < $len_result; $i++) {
 
                 $warning = "";
@@ -349,11 +353,11 @@ class ProductController extends BaseController
                 }
 
                 if (!in_array($result[$i][1], $purchase)) {
-                    $warning .= "<span>订货会<b>" . $result[$i][1] . "</b>有错误</span>";
+                    $warning .= "<span>订货会<b>" . $result[$i][1] . "</b>错误</span>";
                 }
 
                 if (!isset($export->brand[$result[$i][2]]['brand_id'])) {
-                    $warning .= "<span>品牌<b>" . $result[$i][2] . "</b>有错误</span>";
+                    $warning .= "<span>品牌<b>" . $result[$i][2] . "</b>有错误,错误</span>";
                 }
 
                 if (empty($result[$i][3])) {
@@ -386,7 +390,7 @@ class ProductController extends BaseController
                 }
 
                 if (!isset($export->cat_s[$result[$i][9]]['small_id'])) {
-                    $warning .= "<span>小类<b>" . $result[$i][9] . "</b>有错误</span>";
+                    $warning .= "<span>小类<b>" . $result[$i][9] . "</b>错误</span>";
                     $size--;
                 }
 
@@ -398,7 +402,7 @@ class ProductController extends BaseController
 
                 if($size == '3'){
                     if (!$productModel->checkSizeBigAndSmall($result[$i][7], $result[$i][9])) {
-                        $warning .= "<span><b>大类, 小类 不匹配</b></span>";
+                        $warning .= "<span><b>大类 {$result[$i][7]} , 小类 {$result[$i][9]} 不匹配</b></span>";
                     }
                 }
 
@@ -424,7 +428,7 @@ class ProductController extends BaseController
                 if ($color == 2) {
                     $color_id = $export->color[$result[$i][5]]['scheme_id'];
                     if ($color_id != $scheme_id) {
-                        $warning .= "<span><b>色系与颜色不对应</b></span>";
+                        $warning .= "<span><b>色系与颜色不对应，excel表色系 {$result[$i][13]} 色号{$result[$i][5]} ；数据库色系 {$schemeIdToName[$export->color[$result[$i][5]]['scheme_id']]['scheme_name']} 色号 {$export->color[$result[$i][5]]['color_no']} </b></span>";
                     }
                 }
 
@@ -455,7 +459,7 @@ class ProductController extends BaseController
 
                 //检查同款号下的数据是否相同
                 if ($color == 2) {
-                    $checkCatRepeat[$result[$i][0]]['purchase'][] = $result[$i][1];
+                    // $checkCatRepeat[$result[$i][0]]['purchase'][] = $result[$i][1];
                     $checkCatRepeat[$result[$i][0]]['brand'][] = $result[$i][2];
                     $checkCatRepeat[$result[$i][0]]['cat_big'][] = $result[$i][7];
                     $checkCatRepeat[$result[$i][0]]['cat_middle'][] = $result[$i][8];
@@ -474,7 +478,9 @@ class ProductController extends BaseController
 
                 //判断一个颜色只能对应一个流水号
                 $checkSerialModelRepeat[$result[$i][4]][] = $result[$i][0];
-
+//xiugai2017-08-02
+//检查此流水号下的尺码是否重复
+$checkPurchaseSizeRepeat[$result[$i][4]][$result[$i][1]][] = $result[$i][6];
                 //检查此流水号下的尺码是否重复
                 $checkSerialSizeRepeat[$result[$i][4]][] = $result[$i][6];
 
@@ -521,13 +527,14 @@ class ProductController extends BaseController
                     $res_str .= "<p><span><b>{$serialModel}流水号下</b>有不同的商品名</span></p>";
                 }
             }
-
+// var_dump($checkCatRepeat);exit;
             //检查同款号下的数据是否相同
             if (empty($res_str)) {
                 foreach ($checkCatRepeat as $modelSnKey => $modelValue) {
                     foreach ($modelValue as $nameKey => $resValue) {
                         if (count(array_unique($resValue)) >= 2) {
-                            $res_str .= "<p><span><b>{$modelSnKey}款号下</b>有不同的商品数据</span></p>";
+                            $error = implode(',', array_unique($resValue));
+                            $res_str .= "<p><span><b>{$modelSnKey}款号下</b>有不同的商品数据 {$error}</span></p>";
                         }
                     }
                 }
@@ -564,9 +571,11 @@ class ProductController extends BaseController
 
             //检查此流水号下的尺码是否重复
             if (empty($res_str)) {
-                foreach ($checkSerialSizeRepeat as $sizeKey => $sizeValue) {
-                    if (count($sizeValue) != count(array_unique($sizeValue))) {
-                        $res_str .= "<p><span><b>{$sizeKey}流水号</b>下有重复的尺码</span></p>";
+                foreach ($checkPurchaseSizeRepeat as $sizeKey => $sizeValue) {
+                    foreach ($sizeValue as $key => $value) {
+                        if (count($value) != count(array_unique($value))) {
+                            $res_str .= "<p><span><b>{$sizeKey}流水号</b>下有重复的尺码</span></p>";
+                        }
                     }
                 }
             }

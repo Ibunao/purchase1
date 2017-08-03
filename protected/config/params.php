@@ -31,8 +31,8 @@ return array(
     'season_one_name' => '秋', //季节1名称 【'春' || '秋'】
     'season_two_name' => '冬', //季节2名称 【'夏' || '冬'】
     'season_title' => '秋冬',  //季节1、2 名称 【'春夏' || '秋冬'】
-    'purchase_oct' => '2018OCT春夏订货会', //OCT订货会名称
-    'purchase_uki' => '2017OCTWeekendch春夏订货会', //Weekend订货会名称
+    'purchase_oct' => '2018OCT春夏订货会A', //OCT订货会名称
+    'purchase_uki' => '2018OCT春夏订货会B', //Weekend订货会名称
     'web_sites_title' => '十月妈咪秋冬订货会', //前台网站title
     'customer_include' => true, //用户批量导入 允许：true, 不允许 ：false
     'product_include' => true, //商品批量导入 允许：true, 不允许 ：false
