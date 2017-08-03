@@ -105,14 +105,14 @@ class Product extends B2cModel
         //根据输入框的长度来判断是否是 model_sn型号 还是 serial_num 流水号查询 出去重的 style_sn 款号
         if(strlen($serial) >4){
             //获取查询的去重的款号 的型号  
-            $row = $this->ModelQueryAll("SELECT DISTINCT(style_sn) FROM {{product}} WHERE model_sn LIKE '" . $serial . "%'  AND disabled = 'false' and is_down='0'");
+            $row = $this->ModelQueryAll("SELECT DISTINCT(style_sn) FROM {{product}} WHERE model_sn LIKE '" . $serial . "%'  AND disabled = 'false' and is_down='0' AND purchase_id = {$params['purchase_id']}");
             if (!$row) return array();
             //根据查询出的款号 和 搜索条件 获取商品的详细信息
             $items = $this->listModelSn($row, $params, $conArr);
         }else{
             if (!empty($serial)) {
                 //流水号
-                $sql = "SELECT DISTINCT(style_sn) FROM {{product}} WHERE serial_num  ='{$serial}' AND disabled = 'false' AND is_down='0' ORDER BY serial_num ASC";
+                $sql = "SELECT DISTINCT(style_sn) FROM {{product}} WHERE serial_num  ='{$serial}' AND disabled = 'false' AND is_down='0' AND purchase_id = {$params['purchase_id']} ORDER BY serial_num ASC";
                 $row = $this->ModelQueryAll($sql);
                 if (!$row) return array();
                 $items = $this->listSerials($row, $params, $conArr);
@@ -432,9 +432,10 @@ class Product extends B2cModel
     {
         $size_list = $this->tableValue('size', 'size_name', 'size_id');
         $color_list = $this->tableValue('color', 'color_name', 'color_id');
-        $items = Yii::app()->cache->get('model-product-list-' . Yii::app()->session['purchase_id']);
+        $purchaseId = Yii::app()->session['purchase_id'];
+        $items = Yii::app()->cache->get('model-product-list-' . $purchaseId);
         if (!$items) {
-            $sql = "SELECT * FROM {{product}} WHERE disabled = 'false'";
+            $sql = "SELECT * FROM {{product}} WHERE disabled = 'false' AND purchase_id = {$purchaseId}";
             $list = $this->ModelQueryAll($sql);
             foreach ($list as $v) {
                 $item = $v;

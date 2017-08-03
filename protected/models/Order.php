@@ -165,7 +165,7 @@ class Order extends B2cModel
                     $delete_data_arr[] = "UPDATE  meet_order_items SET disabled='true' WHERE order_id = {$order_id} AND product_id = '" . $v[0] . "' AND disabled='false';";
                 continue;
             }
-var_dump($product_list);exit;
+// var_dump($product_list);exit;
             $product_sn = $product_list[$v[0]]['product_sn'];
             $style_sn = $product_list[$v[0]]['style_sn'];
             $model_sn = $product_list[$v[0]]['model_sn'];
