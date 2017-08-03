@@ -206,6 +206,7 @@ $this->breadcrumbs=array(
         <th width="40">操作</th>
         <th width="60">流水号</th>
         <th width="60">款号</th>
+        <th width="30">订购会</th>
         <th width="100">品名</th>
         <th width="100">大类</th>
         <th width="100">中类</th>
@@ -223,11 +224,12 @@ $this->breadcrumbs=array(
     <tr>
         <td width="25"><input type="checkbox"></td>
         <td width="40">
-            <a href="admin.php?r=order/product/update&serial_num=<?php echo $v['serial_num']; ?>"><i class="icon-pencil"></i></a>
+            <a href="admin.php?r=order/product/update&serial_num=<?php echo $v['serial_num']; ?>&purchase_id=<?php echo $v['purchase_id']?>"><i class="icon-pencil"></i></a>
        &nbsp;&nbsp;&nbsp;&nbsp;<a href="admin.php?r=order/product/copy&serial_num=<?php echo $v['serial_num']; ?>"><i class="icon-copy"></i></a>
         </td>
         <td width="60"><?php echo $v['serial_num'] ?></td>
         <td width="100"><?php echo $v['model_sn'] ?></td>
+        <td width="30"><?php echo $v['purchase_id']==1?'A':'B'; ?></td>
         <td width="100"><?php echo $v['name'] ?></td>
         <td width="100"><?php echo $v['cat_name'] ?></td>
         <td width="100"><?php echo $v['cat_middle'] ?></td>

@@ -361,13 +361,13 @@ left join meet_wave as w on w.wave_id = p.wave_id
         if (!empty($arr['priceList'])) {
             $where .= " AND p.price_level_id = {$arr['priceList']}";
         }
-        $sql = "SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.is_down, s.small_cat_name,c.color_name,p.cost_price
+        $sql = "SELECT p.serial_num,p.model_sn,p.name,b.cat_name,m.cat_name AS cat_middle,p.purchase_id,p.is_down, s.small_cat_name,c.color_name,p.cost_price
               FROM  {{product}} AS p
               LEFT JOIN {{color}} AS c ON p.color_id = c.color_id
               LEFT JOIN {{cat_big}} AS b ON p.cat_b = b.big_id
               LEFT JOIN {{cat_middle}} AS m ON m.middle_id= p.cat_m
               LEFT JOIN {{cat_big_small}} AS s ON p.cat_s=s.small_id
-              WHERE disabled='false' " . $where . "  GROUP BY p.serial_num ORDER BY p.serial_num DESC LIMIT {$offset}, {$this->pageSize}";
+              WHERE disabled='false' " . $where . "  GROUP BY p.serial_num,p.purchase_id ORDER BY p.serial_num DESC LIMIT {$offset}, {$this->pageSize}";
 
         return $this->QueryAll($sql);
     }

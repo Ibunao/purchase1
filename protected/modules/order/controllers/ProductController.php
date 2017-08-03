@@ -152,18 +152,19 @@ class ProductController extends BaseController
         $productModel = new Product();
         $guestModel = new GuestManage();
         $serialNum = $this->get("serial_num");
+        $purchaseId = $this->get('purchase_id');
         if (empty($serialNum)) {
             echo "没有流水号";
             die;
         }
 
         //该流水号的商品信息
-        $param = $productModel->selectQueryRow("p.*, s.group_id AS sizeGroup", "{{product}} AS p LEFT JOIN {{size}} AS s ON s.size_id=p.size_id", "p.serial_num = '{$serialNum}' AND p.disabled='false'");
+        $param = $productModel->selectQueryRow("p.*, s.group_id AS sizeGroup", "{{product}} AS p LEFT JOIN {{size}} AS s ON s.size_id=p.size_id", "p.serial_num = '{$serialNum}' AND p.disabled='false' AND p.purchase_id = {$purchaseId}");
 
         //size 已选尺码
         $param['size'] = array();
 
-        $paramSize = $productModel->selectQueryRows("size_id, product_sn", "{{product}}", "serial_num='{$serialNum}' AND disabled='false' GROUP BY size_id");
+        $paramSize = $productModel->selectQueryRows("size_id, product_sn", "{{product}}", "serial_num='{$serialNum}' AND disabled='false' AND purchase_id = {$purchaseId} GROUP BY size_id");
         foreach ($paramSize as $val) {
             $param['size'][] = $val['size_id'];
         }
