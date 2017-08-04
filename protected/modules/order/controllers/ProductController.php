@@ -168,7 +168,7 @@ class ProductController extends BaseController
         foreach ($paramSize as $val) {
             $param['size'][] = $val['size_id'];
         }
-
+var_dump($param);exit;
         //自带下拉列表
         $result = $productModel->getProductFilter($param);
         $this->render('update', array(
@@ -300,7 +300,7 @@ class ProductController extends BaseController
         if (!in_array($postFileType, $allowExt)) {
             exit("上传文件不支持类型，仅限传xls后缀名文件,请先下载导入模板再执行操作");
         }
-
+        // var_dump($postFile);exit;
         if (!is_uploaded_file($postFile['tmp_name'])) {
             exit("不是通过HTP POST上传的文件");
         }
@@ -675,7 +675,7 @@ $checkPurchaseSizeRepeat[$result[$i][4]][$result[$i][1]][] = $result[$i][6];
             $nowTime = time();
             $manage = new GuestManage();
             $manage->import_log($trans, $nowTime, 'product');
-            $this->_clear();
+            // $this->_clear();
             $transaction->commit();
             return true;
         } catch (Exception $e) {

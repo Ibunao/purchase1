@@ -899,6 +899,7 @@ class Product extends B2cModel
         $res = $order->getThisProductIsDown();
         foreach ($item_list as $v) {
             $model[$v['product_id']] = $v;
+            //???不存在为上架？
             $model[$v['product_id']]['is_down'] = isset($res[$v['product_id']]) ? $res[$v['product_id']] : 0;
         }
         return $model;
