@@ -618,6 +618,7 @@ left join meet_wave as w on w.wave_id = p.wave_id
 
         //再次判断款号与色号是否已存在，如果重复则跳转商品修改页面
         $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color_id']}' AND serial_num != '{$serialNum}'");
+var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $serialNum);exit;
         if ($query_model_color_exist) {
             $this->_checkAndSkip("此换号与色号已存在，点击确定跳转到该款号色号中修改商品", "/admin.php?r=order/product/update&serial_num='{$query_model_color_exist['serial_num']}'");
             die;

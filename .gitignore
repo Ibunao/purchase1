@@ -37,3 +37,6 @@ phpunit.phar
 # runtime
 /protected/runtime/
 *.log
+
+# debug assets
+assets/

@@ -14,11 +14,12 @@ return array(
    //    'enableProfiling'=>true,
 
 
-	'connectionString' => 'mysql:host=localhost;dbname=purchase1',
+	'connectionString' => 'mysql:host=localhost;dbname=purchase',
 	'emulatePrepare' => true,
 	'username' => 'root',
 	'password' => '123456',
 	'charset' => 'utf8',
 	'tablePrefix' => 'meet_',   //加入前缀名称sdb_
 	'enableProfiling'=>true,
+	'enableParamLogging'=>true,
 );

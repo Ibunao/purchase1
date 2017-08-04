@@ -163,13 +163,13 @@ class ProductController extends BaseController
 
         //size 已选尺码
         $param['size'] = array();
-
+        //该商品存在的尺码
         $paramSize = $productModel->selectQueryRows("size_id, product_sn", "{{product}}", "serial_num='{$serialNum}' AND disabled='false' AND purchase_id = {$purchaseId} GROUP BY size_id");
         foreach ($paramSize as $val) {
             $param['size'][] = $val['size_id'];
         }
-var_dump($param);exit;
-        //自带下拉列表
+
+        //自带下拉列表 每个字段所有可选的值
         $result = $productModel->getProductFilter($param);
         $this->render('update', array(
             'selectFilter' => $result,
