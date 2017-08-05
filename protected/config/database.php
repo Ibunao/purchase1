@@ -17,7 +17,7 @@ return array(
 	'connectionString' => 'mysql:host=localhost;dbname=purchase',
 	'emulatePrepare' => true,
 	'username' => 'root',
-	'password' => '159753',
+	'password' => '1553',
 	'charset' => 'utf8',
 	'tablePrefix' => 'meet_',   //加入前缀名称sdb_
 	'enableProfiling'=>true,
