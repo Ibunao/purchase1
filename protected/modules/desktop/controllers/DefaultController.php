@@ -71,7 +71,7 @@ class DefaultController extends BaseController
             'res' => $result
         ));
     }
-
+//没用
     public function actionCheck(){
         $table = new Table();
         $result = $table->checkRepeat();
@@ -81,7 +81,7 @@ class DefaultController extends BaseController
             var_dump($result);
         }
     }
-
+//没用，倒入数据用的
     public function actionColor(){
         $filename = 'agent.csv';
         $result = ErpCsv::importCsvData($filename);

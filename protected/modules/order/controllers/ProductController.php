@@ -181,7 +181,8 @@ class ProductController extends BaseController
         if (!empty($postParam)) {
             $moreData = array_diff($postParam['size'], $param['size']);//新多出的size数据
             $lessData = array_diff($param['size'], $postParam['size']); //少了的size数据
-            $res = $productModel->updateProductOperation($postParam, $moreData, $lessData, $serialNum);
+//增加purchase_id
+            $res = $productModel->updateProductOperation($postParam, $moreData, $lessData, $serialNum, $purchaseId);
             $this->_clear();
             if ($res) {
                 $guestModel->breakAction('修改成功', "/admin.php?r=order/product/index");

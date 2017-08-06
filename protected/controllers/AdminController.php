@@ -52,8 +52,8 @@ class AdminController extends Controller
                 $admini = array(
                     'user_id'=>$user['user_id'],
                     'name' => $name,
-                    'super'=>$user['super'],
-                    'role'=>$user['role'],
+                    'super'=>$user['super'],//是否是超级管理员
+                    'role'=>$user['role'],//角色
                     'group_name'=>$permisson['group_name'],
                     'acl'=>$permisson['acl']
                 );

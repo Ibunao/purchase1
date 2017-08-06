@@ -425,7 +425,7 @@ where i.disabled = 'false' ;");
             die;
         }
     }
-
+//没用
     public function checkRepeat(){
         $sql = "select * from {{product}} where model_sn not in( select * from (select max(model_sn) from {{product}} group by model_sn ) as tmp)";
         return $this->ModelQueryAll($sql);

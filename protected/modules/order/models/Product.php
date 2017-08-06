@@ -604,7 +604,7 @@ left join meet_wave as w on w.wave_id = p.wave_id
      * @param $serialNum
      * @return bool
      */
-    public function updateProductOperation($param, $moreData, $lessData, $serialNum)
+    public function updateProductOperation($param, $moreData, $lessData, $serialNum, $purchaseId)
     {
         if ($param['color_id'] == "" || $param['scheme_id'] == "") {
             echo "<script>alert('数据出错，请重试');</script>";
@@ -615,9 +615,9 @@ left join meet_wave as w on w.wave_id = p.wave_id
             echo "<script>alert('如果你不想让这个款号出现，请刷新本页后选择：下架此商品');</script>";
             die;
         }
-
+// 源代码进行判断可能是因为两个订货会不能有一样的产品
         //再次判断款号与色号是否已存在，如果重复则跳转商品修改页面
-        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color_id']}' AND serial_num != '{$serialNum}'");
+        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color_id']}' AND serial_num != '{$serialNum}' AND purchase_id = {$pruchaseId}");
 var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $serialNum);exit;
         if ($query_model_color_exist) {
             $this->_checkAndSkip("此换号与色号已存在，点击确定跳转到该款号色号中修改商品", "/admin.php?r=order/product/update&serial_num='{$query_model_color_exist['serial_num']}'");
@@ -629,12 +629,12 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
 
         //新增尺码数据
         if (!empty($moreData)) {
-            $sql_add .= $this->_addOnlyAddProducts($param, $moreData, $serialNum);
+            $sql_add .= $this->_addOnlyAddProducts($param, $moreData, $serialNum, $purchaseId);
         }
 
         //下架该尺码
         if (!empty($lessData)) {
-             $this->_updateProducts($lessData, $serialNum);
+             $this->_updateProducts($lessData, $serialNum, $purchaseId);
         }
 
         //执行上面返回的sql
@@ -643,7 +643,7 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
         }
 
         //修改其他商品基本数据
-        if ($this->_updateAllSerialNumProduct($param, $serialNum)) {
+        if ($this->_updateAllSerialNumProduct($param, $serialNum, $purchaseId)) {
             return true;
         } else {
             return false;
@@ -681,10 +681,10 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      * @param $serialNum
      * @return bool
      */
-    private function _addOnlyAddProducts($param, $moreData, $serialNum)
+    private function _addOnlyAddProducts($param, $moreData, $serialNum, $purchaseId)
     {
         //先检查该新增的商品在数据库中是否存在，如果存在就直接disabled='false'
-        $moreData = $this->_checkDoHaveThisProduct($serialNum, $moreData);
+        $moreData = $this->_checkDoHaveThisProduct($serialNum, $moreData, $pruchaseId);
         if (empty($moreData)) {
             return "";
         }
@@ -766,18 +766,19 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      * @param $serialNum
      * @return string
      */
-    private function _updateProducts($lessData, $serialNum)
+    private function _updateProducts($lessData, $serialNum, $purchaseId)
     {
         $nowTime = time();
         foreach ($lessData as $k => $v) {
-            $error_product = $this->selectQueryRow("product_id,COUNT(*) AS counts", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='true'");
+            $error_product = $this->selectQueryRow("product_id,COUNT(*) AS counts", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='true'  AND purchase_id = {$purchaseId}");
             if($error_product['counts'] >=1){
                 unset($lessData[$k]);
             }else{
-                $sqlData = $this->selectQueryRow("product_id", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND disabled='false' AND is_error='false'");
-                $isBrought = $this->selectQueryRow("SUM(nums) AS nums", "{{order_items}}", "product_id='{$sqlData['product_id']}' AND disabled='false' ");
+                $sqlData = $this->selectQueryRow("product_id", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND disabled='false' AND is_error='false' AND purchase_id = {$purchaseId}");
+                $isBrought = $this->selectQueryRow("SUM(nums) AS nums", "{{order_items}}", "product_id='{$sqlData['product_id']}' AND disabled='false'  AND purchase_id = {$purchaseId}");
+                //添加到购物车的不允许更改
                 if (empty($isBrought['nums'])) {
-                    $sql_update = "UPDATE {{product}} SET disabled='true' WHERE product_id = '{$sqlData['product_id']}' AND is_error='false';";
+                    $sql_update = "UPDATE {{product}} SET disabled='true' WHERE product_id = '{$sqlData['product_id']}' AND is_error='false' AND purchase_id = {$purchaseId};";
                     $sql_update .= "INSERT INTO {{pchange_log}} (change_name, change_id, change_log, change_type, create_time) VALUES ('product_id', '{$sqlData['product_id']}', '删除商品disabled=true', 'disabled', '{$nowTime}');";
                     $this->Execute($sql_update);
                     unset($lessData[$k]);
@@ -793,11 +794,11 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      * @param $serialNum
      * @return bool
      */
-    private function _updateAllSerialNumProduct($param, $serialNum)
+    private function _updateAllSerialNumProduct($param, $serialNum, $purchaseId)
     {
         //色号转换
         $color_no = $this->_transColorIdToNo($param['color_id']);
-        $model_sn = $this->getThisModelSnBySerialNum($serialNum);
+        $model_sn = $this->getThisModelSnBySerialNum($serialNum, $pruchaseId);
         $this->disabledErrorProduct($model_sn);
         //当上传图片为空，给定默认值
         if (empty($param['image'])) {
@@ -871,7 +872,7 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
         //写入修改日志
         $sql_update = "INSERT INTO {{pchange_log}} (change_name, change_id, change_log, change_type, create_time) VALUES ('serial_num', '{$serialNum}', '{$log1}', 'change', '{$nowTime}'),('model_sn', '{$model_sn}','{$log2}', 'change', '{$nowTime}');";
 
-        if ($this->updateQueryRow($condition1, "{{product}}", "serial_num='{$serialNum}'") && $this->updateQueryRow($condition2, "{{product}}", "model_sn='{$model_sn}'") && $this->ModelExecute($sql_update)) {
+        if ($this->updateQueryRow($condition1, "{{product}}", "serial_num='{$serialNum}' AND purchase_id = {$purchaseId}") && $this->updateQueryRow($condition2, "{{product}}", "model_sn='{$model_sn}' AND purchase_id = {$purchaseId}") && $this->ModelExecute($sql_update)) {
             return true;
         } else {
             return false;
@@ -891,9 +892,9 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      * @param $serial_num
      * @return mixed
      */
-    public function getThisModelSnBySerialNum($serial_num)
+    public function getThisModelSnBySerialNum($serial_num, $purchaseId)
     {
-        $sql = "SELECT model_sn FROM {{product}} WHERE serial_num='{$serial_num}' AND disabled='false' AND is_down='0'";
+        $sql = "SELECT model_sn FROM {{product}} WHERE serial_num='{$serial_num}' AND disabled='false' AND is_down='0' AND purchase_id = {$pruchaseId}";
         $res = $this->QueryRow($sql);
         return $res['model_sn'];
     }
@@ -931,19 +932,19 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      * @param $moreData
      * @return string
      */
-    private function _checkDoHaveThisProduct($serialNum, $moreData)
+    private function _checkDoHaveThisProduct($serialNum, $moreData, $purchaseId)
     {
         $nowTime = time();
         foreach ($moreData as $k => $v) {
             //如果该流水号对应的尺码存在错误 is_error 直接跳过
-            $errorProduct = $this->selectQueryRow("product_id,product_sn", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='true'");
+            $errorProduct = $this->selectQueryRow("product_id,product_sn", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='true' And purchase_id= {$purchaseId}");
             if(!empty($errorProduct)){
                 unset($moreData[$k]);
             }else{
                 //如果该流水号和尺码
                 $product_info = $this->selectQueryRow("product_id,product_sn", "{{product}}", "serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='false'");
                 if($product_info){
-                    $sql_update = "UPDATE {{product}} SET disabled='false' WHERE serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='false';";
+                    $sql_update = "UPDATE {{product}} SET disabled='false' WHERE serial_num='{$serialNum}' AND size_id='{$v}' AND is_error='false' And purchase_id= {$purchaseId};";
                     $sql_update .= "INSERT INTO {{pchange_log}} (change_name, change_id, change_log, change_type, create_time) VALUES ('product_id', '{$product_info['product_id']}', '恢复商品disabled=false', 'disabled', '{$nowTime}');";
                     $this->ModelExecute($sql_update);
                     unset($moreData[$k]);
