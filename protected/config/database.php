@@ -22,4 +22,12 @@ return array(
 	'tablePrefix' => 'meet_',   //加入前缀名称sdb_
 	'enableProfiling'=>true,
 	'enableParamLogging'=>true,
+
+	// 'connectionString' => 'mysql:host=128.128.1.66;dbname=purchase_2017_08',
+	// 'emulatePrepare' => true,
+	// 'username' => 'purchase',
+	// 'password' => 'octmami2015',
+	// 'charset' => 'utf8',
+	// 'tablePrefix' => 'meet_',   //加入前缀名称sdb_
+	// 'enableProfiling'=>true,
 );

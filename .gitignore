@@ -40,3 +40,11 @@ phpunit.phar
 
 # debug assets
 assets/
+images/20170807/1502105913.xls
+images/20170807/1502107144.xls
+images/20170807/1502107105.xls
+images/20170807/1502107033.xls
+images/20170807/1502106928.xls
+images/20170807/1502106876.xls
+protected/config/database.php
+protected/config/admin.php

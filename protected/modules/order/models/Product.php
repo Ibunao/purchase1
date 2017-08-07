@@ -617,8 +617,8 @@ left join meet_wave as w on w.wave_id = p.wave_id
         }
 // 源代码进行判断可能是因为两个订货会不能有一样的产品
         //再次判断款号与色号是否已存在，如果重复则跳转商品修改页面
-        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color_id']}' AND serial_num != '{$serialNum}' AND purchase_id = {$pruchaseId}");
-var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $serialNum);exit;
+        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color_id']}' AND serial_num != '{$serialNum}' AND purchase_id = {$purchaseId}");
+// var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $serialNum);exit;
         if ($query_model_color_exist) {
             $this->_checkAndSkip("此换号与色号已存在，点击确定跳转到该款号色号中修改商品", "/admin.php?r=order/product/update&serial_num='{$query_model_color_exist['serial_num']}'");
             die;
@@ -684,7 +684,7 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
     private function _addOnlyAddProducts($param, $moreData, $serialNum, $purchaseId)
     {
         //先检查该新增的商品在数据库中是否存在，如果存在就直接disabled='false'
-        $moreData = $this->_checkDoHaveThisProduct($serialNum, $moreData, $pruchaseId);
+        $moreData = $this->_checkDoHaveThisProduct($serialNum, $moreData, $purchaseId);
         if (empty($moreData)) {
             return "";
         }
@@ -798,7 +798,7 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
     {
         //色号转换
         $color_no = $this->_transColorIdToNo($param['color_id']);
-        $model_sn = $this->getThisModelSnBySerialNum($serialNum, $pruchaseId);
+        $model_sn = $this->getThisModelSnBySerialNum($serialNum, $purchaseId);
         $this->disabledErrorProduct($model_sn);
         //当上传图片为空，给定默认值
         if (empty($param['image'])) {
@@ -894,7 +894,7 @@ var_dump($query_model_color_exist, $param['modelSn'], $param['color_id'], $seria
      */
     public function getThisModelSnBySerialNum($serial_num, $purchaseId)
     {
-        $sql = "SELECT model_sn FROM {{product}} WHERE serial_num='{$serial_num}' AND disabled='false' AND is_down='0' AND purchase_id = {$pruchaseId}";
+        $sql = "SELECT model_sn FROM {{product}} WHERE serial_num='{$serial_num}' AND disabled='false' AND is_down='0' AND purchase_id = {$purchaseId}";
         $res = $this->QueryRow($sql);
         return $res['model_sn'];
     }

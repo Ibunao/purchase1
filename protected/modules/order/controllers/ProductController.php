@@ -91,7 +91,7 @@ class ProductController extends BaseController
         if (!empty($param)) {
             $res = $productModel->addProductOperation($param);
             if ($res) {
-                $this->_clear();
+                // $this->_clear();
                 $guestModel->breakAction('添加成功', "/admin.php?r=order/product/index");
             } else {
                 $guestModel->breakActions('添加失败');
@@ -183,7 +183,7 @@ class ProductController extends BaseController
             $lessData = array_diff($param['size'], $postParam['size']); //少了的size数据
 //增加purchase_id
             $res = $productModel->updateProductOperation($postParam, $moreData, $lessData, $serialNum, $purchaseId);
-            $this->_clear();
+            // $this->_clear();
             if ($res) {
                 $guestModel->breakAction('修改成功', "/admin.php?r=order/product/index");
             } else {
