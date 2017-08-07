@@ -14,7 +14,7 @@ return array(
    //    'enableProfiling'=>true,
 
 
-	'connectionString' => 'mysql:host=localhost;dbname=purchase',
+	'connectionString' => 'mysql:host=localhost;dbname=purchase1',
 	'emulatePrepare' => true,
 	'username' => 'root',
 	'password' => '123456',

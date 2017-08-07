@@ -41,3 +41,8 @@ phpunit.phar
 # debug assets
 assets/
 protected/config/database.php
+
+# images
+images/
+protected/config/params.php
+protected/config/database.php
