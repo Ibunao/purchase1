@@ -223,7 +223,7 @@ $this->breadcrumbs=array(
 
     <div class="form-group">
         <label for="name">款号</label>
-        <input type="text" name="param[modelSn]"  <?php if($action == 'update'||$action=='change'||$action=='copy'){echo "readonly";} ?> id="modelSn" class="md" value="<?php echo !empty($param['model_sn'])?$param['model_sn']:''; ?>" maxlength="8" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}")">（<b>先填我！</b> 请输入8位款号）
+        <input type="text" name="param[modelSn]"  <?php if($action == 'update'||$action=='change'||$action=='copy'){echo "readonly";} ?> id="modelSn" class="md" value="<?php echo !empty($param['model_sn'])?$param['model_sn']:''; ?>" maxlength="8" onKeyUp="this.value=this.value.replace(/[^\.\d]/g,'');if(this.value.split('.').length>2){this.value=this.value.split('.')[0]+'.'+this.value.split('.')[1]}")">
     </div>
     
     <div class="form-group">
@@ -526,10 +526,11 @@ $this->breadcrumbs=array(
         /**判断是否有存在的款号**/
         $("#modelSn").change(function(){
            var model_sn = $(this).val();
+           var purchase_id = $('#purchase').val();
             console.log(model_sn);
             $.ajax({
                 type: "get",
-                url: "/admin.php?r=order/product/AjaxCheckModelSnExist&modelSn="+model_sn,
+                url: "/admin.php?r=order/product/AjaxCheckModelSnExist&modelSn="+model_sn+"&purchase_id="+purchase_id,
                 dataType: "json",
                 success:function (data) {
                     if(data.code == 200){

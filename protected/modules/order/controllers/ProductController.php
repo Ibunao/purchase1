@@ -922,11 +922,12 @@ $checkPurchaseSizeRepeat[$result[$i][4]][$result[$i][1]][] = $result[$i][6];
     public function actionAjaxCheckModelSnExist()
     {
         $modelSn = $this->get("modelSn");
+        $purchaseId = $this->get("purchase_id");
         if (empty($modelSn)) {
             die;
         }
         $productModel = new Product();
-        $result = $productModel->selectQueryRow('COUNT(*) AS num', '{{product}}', "model_sn = '{$modelSn}'");
+        $result = $productModel->selectQueryRow('COUNT(*) AS num', '{{product}}', "model_sn = '{$modelSn}' AND purchase_id = '{$purchaseId}'");
         if ($result['num'] > 0) {
             echo json_encode(array('code' => 200, 'data' => $modelSn));
         }

@@ -279,7 +279,7 @@ left join meet_wave as w on w.wave_id = p.wave_id
         if (!empty($arr['priceList'])) {
             $where .= " AND price_level_id = {$arr['priceList']}";
         }
-        return $this->selectQueryRow("COUNT(DISTINCT (serial_num)) AS countAll", "{{product}}", "disabled='false' {$where}");
+        return $this->selectQueryRow("COUNT(DISTINCT serial_num, purchase_id) AS countAll", "{{product}}", "disabled='false' {$where}");
     }
 
     /**
@@ -507,7 +507,7 @@ left join meet_wave as w on w.wave_id = p.wave_id
         $this->_checkThisParamIsEmpty($param, "change&modelSn=", $param['modelSn']);
 
         //再次判断款号与色号是否已存在，如果重复则跳转商品修改页面
-        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color']}'");
+        $query_model_color_exist = $this->selectQueryRow('serial_num', '{{product}}', "model_sn='{$param['modelSn']}' AND color_id='{$param['color']}' AND purchase_id = {$param['purchase']}");
         if (!empty($query_model_color_exist)) {
             echo "<script>location.href = '/admin.php?r=order/product/update&serial_num={$query_model_color_exist['serial_num']}';</script>";
             die;
@@ -517,11 +517,11 @@ left join meet_wave as w on w.wave_id = p.wave_id
         $style_sn = $param['modelSn'] . sprintf("%04d", $color_no);
 
         //本产品的流水号
-        $query_serial_num = $this->selectQueryRow("MAX( serial_num * 1 ) AS largest", "{{product}}");
+        $query_serial_num = $this->selectQueryRow("MAX( serial_num * 1 ) AS largest", "{{product}}", "purchase_id = {$param['purchase']}");
         $serialNum = $query_serial_num['largest'] + 1;
 
         //查询本款号的货号的最大一位（以便生成货号）
-        $query_model_sn_numbers = $this->selectQueryRow("MAX(SUBSTRING(product_sn,-3,LENGTH(product_sn))) AS nums", "{{product}}", "model_sn = '{$param['modelSn']}'");
+        $query_model_sn_numbers = $this->selectQueryRow("MAX(SUBSTRING(product_sn,-3,LENGTH(product_sn))) AS nums", "{{product}}", "model_sn = '{$param['modelSn']}' AND purchase_id = {$param['purchase']}");
         if(empty($query_model_sn_numbers['nums'])){
             $countModelSn = 0;
         }else{
@@ -975,6 +975,7 @@ left join meet_wave as w on w.wave_id = p.wave_id
             $groupBy = " GROUP BY {$groupBy} ";
         }
         $sql = "SELECT {$select} FROM {$table} " . $where . " {$groupBy} {$orderBy}";
+        // var_dump($sql);exit;
         return $this->QueryRow($sql);
     }
 
